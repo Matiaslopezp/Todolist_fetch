@@ -3,28 +3,26 @@ import React, { useState } from "react";
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
+const Css={
+  backgrabackgroundColor: "black",
+  width: "1000px",
+  height: "1000px",
+}
+
 //create your first component
 const Home = () => {
-  const [tarea, Settarea] = useState([
-    "lavar",
-    "comer",
-    "dormir",
-    "caminar",
-    "trabajar",
-    "ordenar",
-  ]);
+  const [tarea, Settarea] = useState([ ]);
   return (
-    <div className="text-center">
+    <div className="text-center" style={Css}>
       <h1>TODO List</h1>
 
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          Settarea([...tarea,event.target[0].value]);
-        }}
-      >
-        <input placeholder="Ingresa su nueva Tarea" />
-		</form>
+        <input placeholder="Ingresa su nueva Tarea" onKeyPress={(e)=>{
+          if(e.key==="Enter"){
+            Settarea([...tarea,e.target.value]);
+            e.target.value="";
+          }
+        }} />
+		
 
         {tarea.map((value, index, arr) => {
           console.log(value, index, arr);
