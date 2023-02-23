@@ -97,7 +97,7 @@ const Home = () => {
           e.preventDefault(); //que no se actualize el componente//
           Settarea([...tarea, { label: e.target[0].value, done: false }]);
           putApi();
-          e.target[0].value="";
+          e.target[0].value=" ";
         }}
         >
         <input type="text" placeholder="Ingese la tarea"></input>
